@@ -8,7 +8,7 @@
 	<style>
 		nav{ padding:0;	width: 80%;	text-align: center;	margin: 0.5em auto;	}
 		span{ with 80%; text-align: center; }
-		#resp-form{border: thin solid;}
+		#resp-form{}
 	</style>
 	<script>
 		$(function(){
@@ -37,6 +37,7 @@
 		<button type="button" id="btn-add-usuario" class="btn btn-default" data-tooltip="Actualizar"><img src="img/updateuser.png" alt="usuarios" /></button>
 		<button type="button" id="btn-add-usuario" class="btn btn-default" data-tooltip="Eliminar"><img src="img/deleteuser.png" alt="usuarios" /></button>
 	</nav>
+	<hr>
 	<section id="resp-form">
 		<form action="#">
 			

@@ -41,18 +41,14 @@
 </head>
 <body>
 	<header>
-		<div class="row">
-			<div class="col-xs-12 col-sm-6 col-md-8">
-		  		<div id="cabecera">		  			
-		  			<h3>Bienvenido: <?php echo $_SESSION['nombre']; ?> </h3>
-		  			<small>Sistema de administración clinica.</small>
-		  		</div>
-			</div>
-			<div class="col-xs-6 col-md-4">
-		  		<section id="cerrar">  
-		  			<h5><a href="cerrar-sesion.php">Cerrar sesion</a></h5>
-		  		</section>
-			</div>
+		<div>		
+	  		<div id="cabecera">		  			
+	  			<h3>Bienvenido: <?php echo $_SESSION['nombre']; ?> </h3>
+	  			<small>Sistema de administración clinica.</small>
+	  		</div>
+	  		<section id="cerrar">  
+	  			<h5><a href="cerrar-sesion.php">Cerrar sesion</a></h5>
+	  		</section>			
 		</div>
 	</header>
 	<section>	

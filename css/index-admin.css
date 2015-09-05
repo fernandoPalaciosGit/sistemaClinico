@@ -5,8 +5,9 @@ html,body{
 }
 header{
 	background: #3498db;
-	border: thin solid;
 	color: white;
+	width: 100%;
+	text-align: center;
 }
 small{
 	font-size: 14px;
@@ -23,9 +24,9 @@ small{
 	color: #e74c3c;
 }
 #cerrar, #cabecera{
-	
 	margin: 0.5em auto;
-	width: 70%;
+	width: 45%;
+	display: inline-block;
 }
 /*Contenedor*/
 #actividades{

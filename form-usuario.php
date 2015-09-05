@@ -5,23 +5,29 @@
 	<title></title>
 	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<style>
+		#form-admin-usuario{ width: 50%; margin: 0.5em auto;}
+	</style>
+	<script>
+
+	</script>
 </head>
 <body>
-	<form class="form-horizontal">
+	<form class="form-horizontal" id="form-admin-usuario">
 	 	<div class="form-group">
-			<label for="nombre" class="col-sm-2 control-label">Nombre</label>
+			<label for="nombre" class="col-sm-2 control-label" >Nombre</label>
 	    	<div class="col-sm-10">
-				<input type="text" class="form-control" name="nombre" id="nombre" placeholder="nombre">
+				<input type="text" class="form-control" name="nombre" id="nombre" placeholder="nombre" autofocus >
 	    	</div>
 	  	</div>
 	  	<div class="form-group">
-	    	<label for="apellido" class="col-sm-2 control-label">apellido</label>
+	    	<label for="apellido" class="col-sm-2 control-label">Apellido</label>
 	    	<div class="col-sm-10">
 	      		<input type="text" class="form-control" name="apellido" id="apellido" placeholder="apellido">
 	    	</div>
 	  	</div>
 	  	<div class="form-group">
-	    	<label for="edad" class="col-sm-2 control-label">edad</label>
+	    	<label for="edad" class="col-sm-2 control-label">Edad</label>
 	    	<div class="col-sm-10">
 	      		<input type="number" class="form-control" name="edad" id="edad" placeholder="edad">
 	    	</div>
@@ -29,7 +35,7 @@
 	  	<div class="form-group">
 	    	<label for="especialidad" class="col-sm-2 control-label">Especialidad</label>
 	    	<div class="col-sm-10">
-	      		<input type="text" class="form-control" name="especialidad" id="especialidad" placeholder="Especialidad">
+	      		<input type="text" class="form-control" name="especialidad" id="especialidad" placeholder="especialidad">
 	    	</div>
 	  	</div>
 	  	<div class="form-group">
@@ -65,7 +71,7 @@
 	  	<div class="form-group">
 	    	<label for="recontrasena" class="col-sm-2 control-label">Repetir contraseña</label>
 	    	<div class="col-sm-10">
-	      		<input type="password" class="form-control" name="recontrasena" id="recontrasena" placeholder="Repetir contraseña">
+	      		<input type="password" class="form-control" name="recontrasena" id="recontrasena" placeholder="repetir contraseña">
 	    	</div>
 	  	</div>
 	  	<div class="form-group">
