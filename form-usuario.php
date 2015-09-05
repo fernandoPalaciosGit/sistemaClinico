@@ -4,12 +4,55 @@
 	<meta charset="UTF-8">
 	<title></title>
 	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<script src="js/sweetalert.min.js"></script>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/sweetalert.css" />
 	<style>
 		#form-admin-usuario{ width: 50%; margin: 0.5em auto;}
 	</style>
 	<script>
+		$(function(){
 
+			$('#btn-enviar-form').click(function() {
+				validarFormulario();
+			});
+			$('#btn-cancelar-form').click(function() {
+				limpiarFormulario();
+			});
+
+			function validarFormulario(){
+
+				if( $('#nombre').val() === ""){
+					alertSweetVacio('nombre');
+				}else if( $('#apellido').val() === ""){
+					alertSweetVacio('apellido');
+				}else if( $('#edad').val() === ""){
+					alertSweetVacio('edad');
+				}else if( $('#especialidad').val() === ""){
+					alertSweetVacio('especialidad');
+				}else if( $('#cedula').val() === ""){
+					alertSweetVacio('cedula');
+				}else if( $('#correo').val() === ""){
+					alertSweetVacio('correo');
+				}else if( $('#telefono').val() === ""){
+					alertSweetVacio('telefono');
+				}else if( $('#nombreUsuario').val() === ""){
+					alertSweetVacio('nombre de usuario');
+				}else if( $('#contrasena').val() === ""){
+					alertSweetVacio('contraseña');
+				}else if( $('#recontrasena').val() === ""){
+					alertSweetVacio('repetir contraseña');
+				}
+			}
+
+			function limpiarFormulario(){
+				$('#form-admin-usuario')[0].reset();
+			}
+
+			function alertSweetVacio(nombre){
+				sweetAlert("Error...", "Campo "+nombre+" vacio", "error");
+			}
+		});
 	</script>
 </head>
 <body>
@@ -87,7 +130,8 @@
 	  
  		<div class="form-group">
 	    	<div class="col-sm-offset-2 col-sm-10">
-	      		<button type="submit" class="btn btn-default">Enviar</button>
+	      		<button type="button" id="btn-enviar-form" class="btn btn-default">Enviar</button>
+	      		<button type="button" id="btn-cancelar-form" class="btn btn-default">Cancelar</button>
 	    	</div>
 	  	</div>
 	</form>
