@@ -1,7 +1,12 @@
 <?php
     require 'lib/Inter.php';
     $Y = new Inter();
-    
+
+    // Se relizarán 3 peticiones a la base de datos:
+    // 1.- para checar nombre y apellido ingresado
+    // 2.- para checar cedula
+    // 3.- para checar nombre de usuario
+
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
     $edad = $_POST['edad'];
