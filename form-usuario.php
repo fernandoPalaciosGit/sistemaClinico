@@ -16,6 +16,20 @@
 			$('#btn-enviar-form').click(function() {
 				var confirm = validarFormulario();
 				console.log(confirm);
+				if(confirm){
+					var url = '';
+					$.ajax({
+						type: 'POST',
+						url: url,
+						data: $('#form-admin-usuario').serialize(),
+						success: function(data) {
+							// Principales errores que el servidor regresará :
+							// 1.- El usuario ya existe
+							// 2.- La cedula ya esta dentro del sistema
+							// 3.- Ingreso exitoso
+						}
+					});
+				}
 			});
 			$('#btn-cancelar-form').click(function() {
 				limpiarFormulario();
@@ -23,8 +37,8 @@
 
 			function validarFormulario(){
 
-				var regex = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/; //validacion correo
-				var tel = /^\d{10}$/; // validacion telefono
+				var regex = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/; // ER validacion correo
+				var tel = /^\d{10}$/; // ER validacion telefono
 
 				if( $('#nombre').val() === ""){
 					alertSweetVacio('nombre');
@@ -56,7 +70,6 @@
 					return true;
 				}
 			}
-
 			function limpiarFormulario(){
 				$('#form-admin-usuario')[0].reset();
 			}

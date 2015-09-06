@@ -10,8 +10,24 @@
 		$(function() {
 
 			$('#btn-entrar').click(function() {
-				/* Act on the event */
-
+				var confirmado = validarFormulario();
+				if(confirmado){
+					var url = 'iniciar-sesion.php';
+					$.ajax({
+						type: 'POST',
+						url: url,
+						data: $('#form-index').serialize(),
+						success:function(data){							
+							if(data == 0){
+								window.location.replace("index-admin.php");
+							}else{
+								$('#resp').html(data);
+							}
+						}
+					});
+				}
+			});
+			function validarFormulario(){
 				if( $('#usuario').val() == "")
 				{
 					$('#resp').html("Existen campos vacios.");
@@ -23,23 +39,9 @@
 				}else
 				{
 					$('#resp').html("");
-					var url = 'iniciar-sesion.php';
-					$.ajax({
-						type: 'POST',
-						url: url,
-						data: $('#form-index').serialize(),
-						success:function(data){		
-							console.log(data.length);
-							if(data == 0){
-								window.location.replace("index-admin.php");
-							}else{
-								$('#resp').html(data);										
-							}
-						}
-					});
-				}	
-			});
-
+					return true;
+				}
+			}
 		});
 	</script>
 </head>
@@ -60,9 +62,9 @@
 		    	<input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="contraseña">
 		  	</div>
 		  	<input id="btn-entrar" class="btn btn-primary" type="button" value="ingresar" />
-			<div id="resp"></div>	
-		</form>	
+			<div id="resp"></div>
+		</form>
 	</div>
-	
+
 </body>
 </html>
