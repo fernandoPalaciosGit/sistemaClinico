@@ -14,13 +14,16 @@
 		$(function(){
 
 			$('#btn-enviar-form').click(function() {
-				validarFormulario();
+				var confirm = validarFormulario();
+				console.log(confirm);
 			});
 			$('#btn-cancelar-form').click(function() {
 				limpiarFormulario();
 			});
 
 			function validarFormulario(){
+
+				var regex = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
 
 				if( $('#nombre').val() === ""){
 					alertSweetVacio('nombre');
@@ -42,6 +45,13 @@
 					alertSweetVacio('contraseña');
 				}else if( $('#recontrasena').val() === ""){
 					alertSweetVacio('repetir contraseña');
+				}else if( !regex.test( $('#correo').val() ) ){
+					alertSweetCorreoIncorrecto();
+				}else if( $('#correo').val() != $('#recontrasena').val() ){
+					alertErrorContra();
+				}else{
+					console.log('fin');
+					return true;
 				}
 			}
 
@@ -51,6 +61,12 @@
 
 			function alertSweetVacio(nombre){
 				sweetAlert("Error...", "Campo "+nombre+" vacio", "error");
+			}
+			function alertSweetCorreoIncorrecto(){
+				sweetAlert("Error...", "El correo es incorrecto", "error");
+			}
+			function alertErrorContra(){
+				sweetAlert("Error...", "Las contraseñas no coinciden", "error");
 			}
 		});
 	</script>
@@ -96,7 +112,7 @@
 	  	<div class="form-group">
 	    	<label for="telefono" class="col-sm-2 control-label">Telefono</label>
 	    	<div class="col-sm-10">
-	      		<input type="text" class="form-control" name="telefono" id="telefono" placeholder="telefono">
+	      		<input type="number" class="form-control" name="telefono" id="telefono" placeholder="telefono">
 	    	</div>
 	  	</div>
 	  	<div class="form-group">
@@ -118,7 +134,7 @@
 	    	</div>
 	  	</div>
 	  	<div class="form-group">
-	  		<label for="selec-tipoUsuario" class="col-sm-2 control-label">Tipo de usuario</label>
+	  		<label for="selec-tipoUsuario" class="col-sm-2 control-label">Tipo</label>
 	  		<div class="col-sm-10">
 		  		<select class="form-control" id="selec-tipoUsuario">
 			 		<option>Doctor</option>
