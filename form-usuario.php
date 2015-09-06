@@ -15,7 +15,6 @@
 
 			$('#btn-enviar-form').click(function() {
 				var confirm = validarFormulario();
-				console.log(confirm);
 				if(confirm){
 					var url = '';
 					$.ajax({
@@ -24,9 +23,10 @@
 						data: $('#form-admin-usuario').serialize(),
 						success: function(data) {
 							// Principales errores que el servidor regresará :
-							// 1.- El usuario ya existe
+							// 1.- El nombre de usuario ya existe
 							// 2.- La cedula ya esta dentro del sistema
-							// 3.- Ingreso exitoso
+							// 3.- El un usuario ya esta registrado con ese nombre y apellido
+							// 4.- Ingreso exitoso
 						}
 					});
 				}
@@ -83,7 +83,7 @@
 				sweetAlert("Error...", "Las contraseñas no coinciden", "error");
 			}
 			function alertErrorTelefono(){
-				sweetAlert("Error...", "El numero de telefono superó los 10 digitos necesarios", "error");
+				sweetAlert("Error...", "El telefono debe ser de 10 digitos.", "error");
 			}
 		});
 	</script>
@@ -153,7 +153,7 @@
 	  	<div class="form-group">
 	  		<label for="selec-tipoUsuario" class="col-sm-2 control-label">Tipo</label>
 	  		<div class="col-sm-10">
-		  		<select class="form-control" id="selec-tipoUsuario">
+		  		<select class="form-control" id="selec-tipoUsuario" name="selec-tipoUsuario">
 			 		<option>Doctor</option>
 			  		<option>Psicologo</option>
 			  		<option>Enfermera</option>
