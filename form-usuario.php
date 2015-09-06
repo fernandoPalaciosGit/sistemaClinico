@@ -23,7 +23,8 @@
 
 			function validarFormulario(){
 
-				var regex = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/;
+				var regex = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/; //validacion correo
+				var tel = /^\d{10}$/; // validacion telefono
 
 				if( $('#nombre').val() === ""){
 					alertSweetVacio('nombre');
@@ -47,10 +48,11 @@
 					alertSweetVacio('repetir contraseña');
 				}else if( !regex.test( $('#correo').val() ) ){
 					alertSweetCorreoIncorrecto();
-				}else if( $('#correo').val() != $('#recontrasena').val() ){
+				}else if( $('#contrasena').val() != $('#recontrasena').val() ){
 					alertErrorContra();
+				}else if(!tel.test( $('#telefono').val())){
+					 alertErrorTelefono();
 				}else{
-					console.log('fin');
 					return true;
 				}
 			}
@@ -58,7 +60,6 @@
 			function limpiarFormulario(){
 				$('#form-admin-usuario')[0].reset();
 			}
-
 			function alertSweetVacio(nombre){
 				sweetAlert("Error...", "Campo "+nombre+" vacio", "error");
 			}
@@ -67,6 +68,9 @@
 			}
 			function alertErrorContra(){
 				sweetAlert("Error...", "Las contraseñas no coinciden", "error");
+			}
+			function alertErrorTelefono(){
+				sweetAlert("Error...", "El numero de telefono superó los 10 digitos necesarios", "error");
 			}
 		});
 	</script>
@@ -142,8 +146,8 @@
 			  		<option>Enfermera</option>
 				</select>
 			</div>
-	  	</div>		 
-	  
+	  	</div>
+
  		<div class="form-group">
 	    	<div class="col-sm-offset-2 col-sm-10">
 	      		<button type="button" id="btn-enviar-form" class="btn btn-default">Enviar</button>
@@ -151,6 +155,6 @@
 	    	</div>
 	  	</div>
 	</form>
-	
+
 </body>
 </html>
