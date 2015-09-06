@@ -1,4 +1,7 @@
 <?php
+    require 'lib/Inter.php';
+    $Y = new Inter();
+    
     $nombre = $_POST['nombre'];
     $apellido = $_POST['apellido'];
     $edad = $_POST['edad'];
