@@ -8,7 +8,10 @@
 	<link rel="stylesheet" href="css/index.css" />
 	<script>
 		$(function() {
-
+			// function click del boton entrar del inicio de sesion
+			// manda llamar el metodo de validacion si esta regresa true
+			// ejecuta la llamda ajax para hacer la busqueda del usuario
+			// a la base de datos
 			$('#btn-entrar').click(function() {
 				var confirmado = validarFormulario();
 				if(confirmado){
@@ -17,7 +20,13 @@
 						type: 'POST',
 						url: url,
 						data: $('#form-index').serialize(),
-						success:function(data){							
+						success:function(data){
+							// aqui se redirige al usuario a su index
+							// dependiendo la respuesta del servidor
+							// 0.- admin
+							// 1.- doctor
+							// 2.- psicolog
+							// 3.- enfermera
 							if(data == 0){
 								window.location.replace("index-admin.php");
 							}else{
@@ -27,6 +36,8 @@
 					});
 				}
 			});
+			// Funcion para validar el formulario de inicio de session
+			// checa espacios en blanco
 			function validarFormulario(){
 				if( $('#usuario').val() == "")
 				{
@@ -55,14 +66,14 @@
 		<form action="#" id="form-index">
 			<div class="form-group">
 		    	<label for="usuario">Usuario</label>
-		    	<input type="email" class="form-control" id="usuario" name="usuario" placeholder="usuario">
+		    	<input type="email" class="form-control" id="usuario" name="usuario" placeholder="usuario" autofocus>
 		  	</div>
 		  	<div class="form-group">
 		    	<label for="contrasena">Contraseña</label>
 		    	<input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="contraseña">
 		  	</div>
 		  	<input id="btn-entrar" class="btn btn-primary" type="button" value="ingresar" />
-			<div id="resp"></div>
+			<p id="resp"></p>
 		</form>
 	</div>
 

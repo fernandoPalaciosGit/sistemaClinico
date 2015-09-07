@@ -10,6 +10,9 @@ nav{
 	width: 100%;
 	text-align: center;
 }
+p{
+	color:red;
+}
 #cont-form{
 	padding-top: 3em;
 	width: 80%;
