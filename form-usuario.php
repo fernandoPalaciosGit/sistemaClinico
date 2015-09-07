@@ -12,11 +12,14 @@
 	</style>
 	<script>
 		$(function(){
-
+			// function click del boton enviar del formulario
+			// primero se manda llamer el metdo para validar el formulario,
+			// si todo sale bien regrsa un true y se hace la llamda ajax
+			// para enviar los datos al servidor
 			$('#btn-enviar-form').click(function() {
 				var confirm = validarFormulario();
 				if(confirm){
-					var url = '';
+					var url = 'server-ingreso-usuario.php';
 					$.ajax({
 						type: 'POST',
 						url: url,
@@ -41,10 +44,13 @@
 					});
 				}
 			});
+			// funcion click para limpiar el formualario
 			$('#btn-cancelar-form').click(function() {
 				limpiarFormulario();
 			});
 
+			// funcion para validar el formulario de nuevo usuario
+			// verifica especios en blanco, el correo, telefono y la contraseña
 			function validarFormulario(){
 
 				var regex = /[\w-\.]{2,}@([\w-]{2,}\.)*([\w-]{2,}\.)[\w-]{2,4}/; // ER validacion correo
@@ -80,9 +86,11 @@
 					return true;
 				}
 			}
+			// funcion para limpiar el formulario
 			function limpiarFormulario(){
 				$('#form-admin-usuario')[0].reset();
 			}
+			// las siguientes funciones son para mostrar un alert mas personalizado
 			function alertSweetVacio(nombre){
 				sweetAlert("Error...", "Campo "+nombre+" vacio", "error");
 			}
