@@ -6,14 +6,7 @@ class Inter extends Conexion {
     public function __construct() {
         parent::__construct();
     }
-    // Funcion para agregar un nuevo usuario ala bd
-    public function AgregarNuevoUsuario($nombre,$apellidos,$correo,$nombreUsuario,$contrasena,$tipoUsuario,$fecha){
-        $resultado = Array();
-        $this->abrirConexion();
-        $this->seleccionarBaseDatos('clinica');
-        $rSQL = $this -> getConsulta('INSERT INTO usuario(nombre,apellidos,correo,nombreUsuario,contrasena,tipoUsuario,fecha)  VALUES("'.$nombre.'","'.$apellidos.'","'.$correo.'","'.$nombreUsuario.'","'.$contrasena.'","'.$tipoUsuario.'","'.$fecha.'")');
 
-    }
     // Funcion que permitira traer todos los datos de un
     // usuario en particular usando el nombre usuario
     public function BuscarUsuario($nombreUsuario) {
@@ -73,6 +66,15 @@ class Inter extends Conexion {
         }
         $this->cerrarConexion();
         return $resultado;
+    }
+    // Funcion que se encarga de insertar un nuevo
+    // usuario ala base de datos.
+    // Funcion para agregar un nuevo usuario ala bd
+    public function AgregarNuevoUsuario($nombre,$apellidos,$edad,$especialidad,$cedula,$correo,$telefono,$nombreUsuario,$contrasena,$tipousuario){
+        $resultado = Array();
+        $this->abrirConexion();
+        $this->seleccionarBaseDatos('clinica');
+        $rSQL = $this -> getConsulta('insert into usuario(nombre, apellido, edad, especialidad, cedula, correo, telefono, nombreUsuario, contrasena, tipoUser) values ("'.$nombre.'","'.$apellidos.'","'.$edad.'","'.$especialidad.'","'.$cedula.'","'.$correo.'","'.$telefono.'","'.$nombreUsuario.'","'.$contrasena.'","'.$tipousuario.'" )');
     }
 }
 ?>

@@ -17,7 +17,7 @@
     $telefono = $_POST['telefono'];
     $nombreUsuario = $_POST['nombreUsuario'];
     $contrasena = $_POST['nombreUsuario'];
-    $tipousuario = $_POST['selec-tipoUsuario'];
+    $tipousuarioprof = $_POST['selec-tipoUsuario'];
 
     // Se realiza la peticiones en el orden de arriba
     // para validar de que los datos no se repitan
@@ -39,6 +39,23 @@
     // Validamos que ningun contador se haya incrementado
     // para constar de que no existe algun error
     if( $cont1 == 0 && $cont2 == 0 && $cont3 == 0){
+        // checar que tipo de usuario eligio para asi
+        // ingresar el valor correspondiente a la base de datos
+        // 0.- admin (solo existe un admin, en caso de querer agregar admin's colocar opcion en select y otro caso en el switch con valor 0)
+        // 1.- doctor
+        // 2.- psicologo
+        // 3.- enfermera
+        switch ($tipousuarioprof) {
+            case 'Doctor':
+                $tipousuario = 1;
+                break;
+            case 'Psicologo':
+                $tipousuario = 2;
+                break;
+            case 'Enfermera':
+                $tipousuario = 3;
+                break;
+        }
 
     }
 
