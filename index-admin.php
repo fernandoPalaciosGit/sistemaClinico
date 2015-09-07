@@ -9,7 +9,8 @@
 	<link rel="stylesheet" href="css/index-admin.css" />
 	<script>
 	$(function(){
-		
+		// funcions click cada uno manda llamar la vista que se
+		// indica: usuarios, proveedores, medicinas, reportes.
 		$('#btn-usuarios').click(function() {
 			var url = 'vista-admin-usuarios.php';
 			peticionAjax(url);
@@ -26,7 +27,8 @@
 			var url = 'vista-admin-reportes.php';
 			peticionAjax(url);
 		});
-
+		// funcion que realiza la llamada ajax, que resive
+		// como parametro la url de la vista
 		function peticionAjax (url) {
 			$.ajax({
 				type: 'POST',
@@ -41,17 +43,17 @@
 </head>
 <body>
 	<header>
-		<div>		
-	  		<div id="cabecera">		  			
+		<div>
+	  		<div id="cabecera">
 	  			<h3>Bienvenido: <?php echo $_SESSION['nombre']; ?> </h3>
 	  			<small>Sistema de administración clinica.</small>
 	  		</div>
-	  		<section id="cerrar">  
+	  		<section id="cerrar">
 	  			<h5><a href="cerrar-sesion.php">Cerrar sesion</a></h5>
-	  		</section>			
+	  		</section>
 		</div>
 	</header>
-	<section>	
+	<section>
 		<section id="actividades">
 			<button type="button" id="btn-usuarios" class="btn btn-default" data-tooltip="Admin. de usuarios."><img src="img/usuarios.png" alt="usuarios" /></button>
 			<button type="button" id="btn-proveedores" class="btn btn-default" data-tooltip="Admin. de proveedores."><img src="img/proveedores.png" alt="proveedores" /></button>
@@ -61,8 +63,8 @@
 	</section>
 	<hr>
 	<section id="resp">
-		
-	</section>	
+
+	</section>
 </body>
 </html>
 <!--Adminitra a los usuarios, medicinas y proveedores de las medicinas-->
