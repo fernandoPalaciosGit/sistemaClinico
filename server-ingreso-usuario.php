@@ -56,7 +56,9 @@
                 $tipousuario = 3;
                 break;
         }
-
+        // Se realiza la inserción a la base de datos del usuario
+        $insertuser = $Y -> AgregarNuevoUsuario($nombre,$apellido,$edad,$especialidad,$cedula,$correo,$telefono,$nombreUsuario,$contrasena,$tipousuario);
+        echo 4;
     }
 
 

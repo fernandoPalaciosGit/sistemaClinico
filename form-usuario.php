@@ -25,19 +25,23 @@
 						url: url,
 						data: $('#form-admin-usuario').serialize(),
 						success: function(data) {
+							console.log(data);
 							// Principales errores que el servidor regresará :
 							// 1.- El nombre de usuario ya existe
 							// 2.- La cedula ya esta dentro del sistema
 							// 3.- El un usuario ya esta registrado con ese nombre y apellido
 							// 4.- Ingreso exitoso
-							if(data === 1){
+							if(data == 1){
 								sweetAlert("Error...", "El nombre de usuario ya existe.", "error");
-							}else if(data === 2){
+								$('#nombreUsuario').focus();
+							}else if(data == 2){
 								sweetAlert("Error...", "La cedula ya se encuentra registrada en el sistema.", "error");
-							}else if(data === 3){
+								$('#cedula').focus();
+							}else if(data == 3){
 								sweetAlert("Error...", "Ya existe un usuario con el nombre y apellido, registrado.", "error");
-							}else if(data === 4){
-								swal("Correcto", "Ingreso exitoso!", "success");
+								$('#nombre').focus();
+							}else if(data == 4){
+								sweetAlert("Correcto", "Ingreso exitoso!", "success");
 								limpiarFormulario();
 							}
 						}
