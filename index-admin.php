@@ -9,7 +9,7 @@
 	<link rel="stylesheet" href="css/index-admin.css" />
 	<script>
 	$(function(){
-		// funcions click cada uno manda llamar la vista que se
+		// funciones click para cada uno de los botones que llama la vista que se
 		// indica: usuarios, proveedores, medicinas, reportes.
 		$('#btn-usuarios').click(function() {
 			var url = 'vista-admin-usuarios.php';
