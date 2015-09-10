@@ -76,5 +76,33 @@ class Inter extends Conexion {
         $this->seleccionarBaseDatos('clinica');
         $rSQL = $this -> getConsulta('insert into usuario(nombre, apellido, edad, especialidad, cedula, correo, telefono, nombreUsuario, contrasena, tipoUser) values ("'.$nombre.'","'.$apellidos.'","'.$edad.'","'.$especialidad.'","'.$cedula.'","'.$correo.'","'.$telefono.'","'.$nombreUsuario.'","'.$contrasena.'","'.$tipousuario.'" )');
     }
+    // Funcion para seleccionar todos los usuarios ingresados
+    public function BuscarUsuarioSinFiltro() {
+        $resultado = Array();
+        $this->abrirConexion();
+        $this->seleccionarBaseDatos('clinica');
+        $rSQL = $this->getConsulta('select * from usuario');
+        if (mysql_num_rows($rSQL) > 0) {
+            while ($fila = mysql_fetch_assoc($rSQL)) {
+                array_push($resultado, $fila);
+            }
+        }
+        $this->cerrarConexion();
+        return $resultado;
+    }
+    // Funcion para seleccionar todos los usuarios usando un filtro por el tipo de usuario
+    public function BuscarUsuarioFiltro($tipoUser) {
+        $resultado = Array();
+        $this->abrirConexion();
+        $this->seleccionarBaseDatos('clinica');
+        $rSQL = $this->getConsulta('select * from usuario where tipoUser = "'.$tipoUser.'" ');
+        if (mysql_num_rows($rSQL) > 0) {
+            while ($fila = mysql_fetch_assoc($rSQL)) {
+                array_push($resultado, $fila);
+            }
+        }
+        $this->cerrarConexion();
+        return $resultado;
+    }
 }
 ?>

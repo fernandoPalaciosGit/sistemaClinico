@@ -39,16 +39,13 @@
 			// Funcion para validar el formulario de inicio de session
 			// checa espacios en blanco
 			function validarFormulario(){
-				if( $('#usuario').val() == "")
-				{
+				if( $('#usuario').val() == ""){
 					$('#resp').html("Existen campos vacios.");
 					$('#usuario').focus();
-				}else if( $('#contrasena').val() == "")
-				{
+				}else if( $('#contrasena').val() == ""){
 					$('#resp').html("Existen campos vacios.");
 					$('#contrasena').focus();
-				}else
-				{
+				}else{
 					$('#resp').html("");
 					return true;
 				}

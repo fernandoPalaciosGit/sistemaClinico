@@ -16,6 +16,10 @@
 				var url = 'form-usuario.php';
 				peticionAjax(url);
 			});
+			$('#btn-view-users').click(function(){
+				var url = 'ver-usuario.php';
+				peticionAjax(url);
+			});
 
 			function peticionAjax(url){
 				$.ajax({
@@ -33,14 +37,14 @@
 	<span><p>Administración de usuarios</p></span>
 	<nav>
 		<button type="button" id="btn-add-usuario" class="btn btn-default" data-tooltip="Agregar"><img src="img/adduser.png" alt="usuarios" /></button>
-		<button type="button" id="btn-add-usuario" class="btn btn-default" data-tooltip="Ver"><img src="img/viewuser.png" alt="usuarios" /></button>
+		<button type="button" id="btn-view-users" class="btn btn-default" data-tooltip="Ver"><img src="img/viewuser.png" alt="usuarios" /></button>
 		<button type="button" id="btn-add-usuario" class="btn btn-default" data-tooltip="Actualizar"><img src="img/updateuser.png" alt="usuarios" /></button>
 		<button type="button" id="btn-add-usuario" class="btn btn-default" data-tooltip="Eliminar"><img src="img/deleteuser.png" alt="usuarios" /></button>
 	</nav>
 	<hr>
 	<section id="resp-form">
 		<form action="#">
-			
+
 		</form>
 	</section>
 </body>
