@@ -1,9 +1,12 @@
 <?php
+    // se importan los archivos necesarios para la Conexion alabd
     require 'lib/Inter.php';
     $Y = new Inter();
 
+    // se cacha el dato para saber que tipo usuario se debe desglosar
     $tipoUser = $_POST['selec-tipoUsuario'];
-
+    // como la bd espera un entero se checa el dato y se crea un varible
+    // para identificar el tipo de usuario  asi poder hacer la consulta.
     switch ($tipoUser) {
         case 'Doctor':
             $tipo = 1;
@@ -15,10 +18,10 @@
             $tipo = 3;
             break;
     }
-
+    // Se realiza la peticion
     $usuarios = $Y -> BuscarUsuarioFiltro($tipo);
     $cont = 0;
-
+    // Se crea la tabla para mostrar al usuario.
     $tabla="<table class='table table-bordered'>
                <tr>
                    <td>Nombre</td>
@@ -42,6 +45,7 @@
                        </tr>";
            }
            $tabla.='</table>';
+    // se verifica que en realidad traiga datos si no regresa el error 10
     if($cont == 0){
         echo 10;
     }else{

@@ -9,15 +9,16 @@
     	<link rel="stylesheet" href="css/sweetalert.css" />
         <script>
             $(function(){
-
+                //Esta peticion se hace en cuando entra a la parte de ver
                 peticionAjax('server-ver-usuarios.php');
-
+                // Este metodo checa el select cada que hay un cambio,
+                // realiza una peticion.
                 $('#selec-tipoUsuario').change(function () {
                     var optionSelected = $(this);
                     var valueSelected  = optionSelected.val();
                     peticionAjax('server-ver-usuarios.php');
                 });
-
+                // Funcion para hacer la peticion ajax
                 function peticionAjax(url){
                     $.ajax({
         				type: 'POST',
@@ -32,6 +33,7 @@
         				}
         			});
                 }
+                // Funcion que emit un alet mas personalizado.
                 function alertSweetNoUsuario(){
     				sweetAlert("Error...", "No hay Usuarios de ese tipo registrados.", "error");
     			}

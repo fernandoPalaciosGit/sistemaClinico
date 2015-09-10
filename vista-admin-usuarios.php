@@ -12,6 +12,7 @@
 	</style>
 	<script>
 		$(function(){
+			// acciones alos botones del index admin
 			$('#btn-add-usuario').click(function() {
 				var url = 'form-usuario.php';
 				peticionAjax(url);
@@ -20,7 +21,7 @@
 				var url = 'ver-usuario.php';
 				peticionAjax(url);
 			});
-
+			// peticionAjax
 			function peticionAjax(url){
 				$.ajax({
 					type: 'POST',
